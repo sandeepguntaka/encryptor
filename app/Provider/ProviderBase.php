@@ -12,11 +12,11 @@ use App\CipherInterface;
  */
 abstract class ProviderBase implements CipherInterface
 {
-    public function __set($name, $val)
+    public function __set(string $name, $val)
     {
         $this->$name = $val;
     }
-    public function __get($name)
+    public function __get(string $name)
     {
         return $this->$name;
     }

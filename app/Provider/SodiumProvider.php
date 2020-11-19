@@ -7,7 +7,7 @@ class SodiumProvider extends ProviderBase
 {
 
     protected $secretKey;
-    public function __construct($secretKey = null)
+    public function __construct(string $secretKey = null)
     {
         //Add default values
         if (is_null($secretKey)) {
