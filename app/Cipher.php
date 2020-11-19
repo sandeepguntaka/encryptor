@@ -11,7 +11,7 @@ class Cipher implements CipherInterface
     public static function createInstance($provider = null, $options = [])
     {
         if(is_null($provider)) {
-            //Fall back to a default provider is class doesnot exist.
+            //Fall back to a default provider if class doesnot exist.
             $provider = '\App\Provider\OpenSslProvider';
         }
         if (!class_exists($provider)) {
