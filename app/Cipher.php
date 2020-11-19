@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Provider\ProviderBase;
 use ReflectionClass;
 
 class Cipher implements CipherInterface
@@ -18,13 +19,17 @@ class Cipher implements CipherInterface
             throw new \Exception("Class Not Found");
         }
 
-        // Create an instance of teh provider.
-        return call_user_func_array(
+        // Create an instance of the provider.
+        $instance = call_user_func_array(
             array(
             new ReflectionClass($provider), 'newInstance'
             ),
             $options
         );
+        if($instance instanceof ProviderBase){
+          return $instance;
+        }
+        throw new \Exception("Invalid Provider class");
     }
     public function __construct(string $providerClass = null, array $options)
     {
