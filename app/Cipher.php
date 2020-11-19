@@ -8,7 +8,7 @@ class Cipher implements CipherInterface
 {
     private $provider;
 
-    public static function createInstance(CipherInterface $provider = null, $options = [])
+    public static function createInstance($provider = null, $options = [])
     {
         if(is_null($provider)) {
             //Fall back to a default provider is class doesnot exist.
@@ -26,7 +26,7 @@ class Cipher implements CipherInterface
             $options
         );
     }
-    public function __construct(CipherInterface $providerClass = null, $options)
+    public function __construct($providerClass = null, $options)
     {
         $this->provider = self::createInstance($providerClass, $options);
     }
